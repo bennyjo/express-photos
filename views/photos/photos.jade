@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    h1 Photos
+    p Express stock photo application.
+    
+    #photos
+        for photo in photos
+            .photo(data-id=photo.id)
+                h2= photo.name
+                if photo.own
+                    a.remove(href='#') ×
+                a(href='/photo/#{photo.id}/download')
+                    img(src='/photos/#{photo.path}')

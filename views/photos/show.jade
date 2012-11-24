@@ -1,0 +1,6 @@
+.photo(data-id=photo.id)
+    h2= photo.name
+    if photo.own
+        a.remove(href='#') ×
+        a(href='/photo/#{photo.id}/download')
+            img(src='/photos/#{photo.path}')
