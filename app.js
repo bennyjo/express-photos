@@ -7,7 +7,7 @@ var express = require('express')
   , http    = require('http')
   , path    = require('path')
 
-  ,routes     = require('./routes')
+  , routes    = require('./routes')
   , api       = require('./routes/api')
   , login     = require('./routes/login')
   , register  = require('./routes/register')
@@ -65,7 +65,6 @@ app.configure(function(){
   app.post('/register', register.submit);
 
   app.get('/:page?', page(Photo.count, 15), photos.list);
-
   if (process.env.ERROR_ROUTE) {
     app.get('/dev/error', function(req, res, next){
         var err = new Error('database connection failed');
